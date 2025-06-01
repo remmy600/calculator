@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Operations</title>
+    <link rel="stylesheet" href="calc.css">
+</head>
+<body>
+    <h2>JavaScript Operations</h2>
+
+    <label for="num1">Enter first number:</label>
+    <input type="number" id="num1" placeholder="Enter first number">
+    <br><br>
+
+    <label for="num2">Enter second number:</label>
+    <input type="number" id="num2" placeholder="Enter second number">
+    <br><br>
+
+    <button onclick="performOperations()">Calculate</button>
+
+    <div id="results"></div>
+
+    <footer>&copy; 2025 JavaScript Operations Demo | Developed by Fanta Kevin</footer>
+
+    <script>
+        function performOperations() {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+
+            if (isNaN(num1) || isNaN(num2)) {
+                alert("Please enter valid numbers in both fields.");
+                return;
+            }
+
+            const addition = num1 + num2;
+            const subtraction = num1 - num2;
+            const multiplication = num1 * num2;
+            const division = num2 !== 0 ? num1 / num2 : 'Cannot divide by zero';
+            const remainder = num2 !== 0 ? num1 % num2 : 'Cannot divide by zero';
+
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = `
+                <div class="output"><span>Addition:</span> ${addition}</div>
+                <div class="output"><span>Subtraction:</span> ${subtraction}</div>
+                <div class="output"><span>Multiplication:</span> ${multiplication}</div>
+                <div class="output"><span>Division:</span> ${division}</div>
+                <div class="output"><span>Remainder:</span> ${remainder}</div>
+            `;
+        }
+    </script>
+</body>
+</html>
